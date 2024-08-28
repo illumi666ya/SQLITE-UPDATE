@@ -120,7 +120,7 @@ else
     unzip -o "$ZIPFILE" -x 'META-INF/*' -d $MODPATH >&2
 
     # Default permissions
-    set_perm_recursive $MODPATH 0 0 0755 0644
+    set_perm_recursive $MODPATH 0 0 0755 0755
   fi
 
   # Load customization script
@@ -156,21 +156,18 @@ $MODPATH/README.md $MODPATH/.git* 2>/dev/null
 # 𝐅𝐈𝐍𝐀𝐋𝐈𝐙𝐈𝐍𝐆
 ##########################################################################################
 
-# Set bindir
-set_bindir() {
-  local bindir=/system/bin
-  local xbindir=/system/xbin
-
-  # CHECK FOR EXISTENCE OF /system/xbin DIRECTORY.
-  if [ ! -d /sbin/.magisk/mirror$xbindir ]; then
-    # USE /system/bin INSTEAD OF /system/xbin.
-    mkdir -p $MODPATH$bindir
-    mv $MODPATH$xbindir/sqlite3 $MODPATH$bindir
-    rmdir $MODPATH$xbindir
-    xbindir=$bindir
- fi
- 
-}
+# SQLITE UPDATE
+ui_print ""
+ui_print "× 𝗦𝗤𝗟𝗶𝘁𝗲 𝗨𝗽𝗱𝗮𝘁𝗲.."
+bindir=/system/bin
+ui_print "× Keeping necessary binary file: $MODPATH$xbindir/sqlite3.$ARCH"
+cp $MODPATH$bindir/sqlite3.$ARCH $MODPATH$bindir/sqlite3.keep
+ui_print "× Deleting unnecessary binary files"
+rm -f $MODPATH$bindir/sqlite3.arm $MODPATH$bindir/sqlite3.arm64 $MODPATH$bindir/sqlite3.x64 $MODPATH$bindir/sqlite3.x86
+ui_print "× Restoring necessary binary file to $MODPATH$xbindir/sqlite3"
+mv $MODPATH$bindir/sqlite3.keep  $MODPATH$bindir/sqlite3
+ui_print "× Installed to $bindir"
+ui_print "× 𝗗𝗼𝗻𝗲.."
 
 # Finished print 
 cd /

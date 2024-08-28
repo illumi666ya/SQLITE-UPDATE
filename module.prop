@@ -1,8 +1,8 @@
 id=SQLITE-UPDATE
-name=Sqlite Update
-version=V2-STABLE
-versionCode=2
+name=SQLite Update
+version=V3-STABLE
+versionCode=3
 author=ILLUMI
-description=SQLite for ARM aarch64 devices version 3.45.2
+description=SQLite for arm, arm64, x86 and x64 devices versions 3.46.0.
 support=https://bento.me/illumi
 donate=https://www.paypal.com/paypalme/faniadittiya

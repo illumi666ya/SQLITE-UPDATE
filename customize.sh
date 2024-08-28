@@ -12,8 +12,7 @@ LATESTARTSERVICE=false
 # 𝐒𝐊𝐈𝐏 𝐔𝐍𝐙𝐈𝐏
 SKIPUNZIP=0
 # 𝐒𝐄𝐓 𝐏𝐄𝐑𝐌𝐈𝐒𝐒𝐈𝐎𝐍𝐒
-set_perm_recursive $MODPATH 0 0 0755 0644
-set_perm_recursive $MODPATH/system/bin/sqlite3 0 0 0751 0751
+set_perm_recursive $MODPATH 0 0 0755 0755
 
 # 𝐏𝐑𝐈𝐍𝐓𝐌𝐎𝐃𝐍𝐀𝐌𝐄
 CREATOR="𝗠𝗢𝗗𝗨𝗟𝗘 𝗕𝗬 𝗜𝗟𝗟𝗨𝗠𝗜 "
